@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Pre-carga de todas las animaciones Lottie
+    // Pre-cargar todas las animaciones Lottie
     loadLottieAnimation('full-width-lottie-intro', './json/Intro.json');
     loadLottieAnimation('full-width-lottie', './json/pt1.json');
     loadLottieAnimation('lottie1', './json/pt2.json');
@@ -16,9 +16,10 @@ document.addEventListener('DOMContentLoaded', function() {
     var intro = document.getElementById('full-width-lottie-intro');
     var mainContent = document.getElementById('main-content');
 
+    // Verificación de la existencia de los elementos clave
     if (!loader || !intro || !mainContent) {
         console.error('Some DOM elements are missing.');
-        return; // No continue si algunos elementos no están presentes
+        return; // No continuar si algunos elementos no están presentes
     }
 
     // Ocultar loader y mostrar intro cuando todo esté cargado
@@ -47,6 +48,11 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function() {
             intro.style.display = 'none';
             mainContent.style.display = 'block';
+            // Desplazar al principio de la página (top)
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
             setTimeout(function() {
                 mainContent.style.opacity = 1;
             }, 10);
@@ -70,7 +76,6 @@ function loadLottieAnimation(containerId, path) {
     lottie.loadAnimation(animData);
 }
 
-
 function updateTimer() {
     const now = new Date();
     const targetDate = new Date('2024-07-13T00:00:00');  // 13 de julio de 2024 a medianoche
@@ -84,7 +89,6 @@ function updateTimer() {
 
         document.getElementById('days').innerText = `${days}`;
         document.getElementById('hours').innerText = `${hours}`;
-
         document.getElementById('seconds').innerText = `${seconds}`;
     } else {
         // La fecha ya ha pasado
