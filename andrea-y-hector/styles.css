@@ -1,0 +1,123 @@
+ /* Reset básico */
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: sans-serif;
+    background-color: #869F85;
+    color: #333;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  /* Pantalla de carga */
+  #loading-screen {
+    position: fixed;
+    top: 0;
+    left: 50%; /* Centra el elemento horizontalmente moviéndolo a la mitad de la pantalla */
+    transform: translateX(-50%); /* Desplaza el elemento hacia atrás en el eje X en un 50% de su propio ancho para centrar exactamente */
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    background-color: #A0B29E; /* Puedes cambiarlo al color que prefieras */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Para que se superponga al resto */
+  }
+
+  /* Contenedor principal (invisible hasta que termine la carga) */
+  #main-content {
+    display: none; /* Se mostrará después de ocultar la pantalla de carga */
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Sección animación */
+  .section {
+    display: block;       /* Para ocupar todo el ancho disponible */
+    margin-bottom: 30px;  /* Espacio entre secciones */
+    text-decoration: none; /* Quita el subrayado de enlace */
+    color: inherit;        /* Mantiene el color de texto */
+    width: 100%;
+    max-width: 800px;      /* Limitamos el ancho a 800px */
+    margin: 0 auto -10px;
+  }
+
+  .animation-container {
+    width: 100%;
+    /* La altura se ajusta automáticamente al SVG; si lo requieres fijo, agrega un min-height */
+  }
+
+  /* Centrar contenido de cada sección, por si lo requieres */
+  .animation-container,
+  .section {
+    text-align: center;
+  }
+
+  #section-pt3 {
+    margin-top: -380px;}
+  #section-pt5 {
+    margin-top: -280px;
+  }
+  #section-pt5 {
+    margin-bottom: -50px;
+    position: relative;
+    z-index: 99;
+  }
+
+  /* countdown */
+  #section-pt7 {
+    position: relative; /* Necesario para el posicionamiento absoluto del contador */
+  }
+  
+  #countdown-container {
+    position: absolute;
+    width: 100%;
+    top: 74%; /* Centrado verticalmente */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrado perfecto */
+    text-align: center;
+    z-index: 10; /* Asegúrate de que esté por encima de otros elementos */
+  }
+  
+  #countdown-container div {
+    width: 38px;
+    display: inline-block;
+    margin: 0 22px;
+    padding: 5px 10px;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    font-size: 24px; /* Tamaño de la fuente */
+  }
+  /* countdown */
+
+  @media (max-width: 570px) {
+    #countdown-container div {
+        margin: 0 10px;
+      }
+  }
+
+  @media (max-width: 480px) {
+    #section-pt3 {
+        margin-top: calc(-60vw - 10px); /* Más ajuste para dispositivos móviles */
+      }
+      #section-pt5{
+        margin-top: calc(-40vw - 10px); /* Más ajuste para dispositivos móviles */
+      }
+      #section-pt5{
+        margin-bottom: -26px;
+      }
+}
+
+    @media (max-width: 350px) {
+        #countdown-container div {
+            margin: 0 2px;
+            padding: 0;
+        }
+    }
